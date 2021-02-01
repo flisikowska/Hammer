@@ -10,11 +10,13 @@ const StyledParagraph = styled.p`
   margin: 0;
   cursor: default;
   width: 100%;
-
   position: absolute;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -40%);
+  @media (max-width: 768px) {
+    font-size: 6vw;
+  }
 `;
 
 const Header = () => (

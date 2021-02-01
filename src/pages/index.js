@@ -9,6 +9,7 @@ import MainTemplate from "../templates/MainTemplate";
 import Header from "../components/atoms/Header";
 import AboutMe from "../components/organisms/AboutMe";
 import Contact from "../components/organisms/Contact";
+import Title from "../components/atoms/Title";
 import "swiper/swiper-bundle.css";
 import Swiper, {
   Pagination,
@@ -27,28 +28,6 @@ const SwiperPagination = styled.div`
   }
 `;
 
-const StyledTitle = styled.h1`
-  letter-spacing: 10px;
-  text-transform: uppercase;
-  margin: 0;
-  z-index: 100;
-  font-size: 16vw;
-  pointer-events: none;
-  position: absolute;
-  font-family: "Abel";
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -55%);
-  color: #ffd000;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 2px;
-  transition: 1s;
-  @media (max-width: 1000px) {
-    font-size: 20vw;
-    -webkit-text-stroke-width: 1px;
-  }
-`;
-
 const SwiperScrollbar = styled.div`
   .swiper-scrollbar-drag {
     background-color: #aaa !important;
@@ -63,15 +42,15 @@ const Index = () => {
     switch (window.location.hash) {
       case "#home":
         swiper.slideTo(0);
-        if (swiperIndex == undefined) setSwiperIndex(0);
+        if (swiperIndex === undefined) setSwiperIndex(0);
         break;
       case "#aboutus":
         swiper.slideTo(1);
-        if (swiperIndex == undefined) setSwiperIndex(1);
+        if (swiperIndex === undefined) setSwiperIndex(1);
         break;
       case "#contact":
         swiper.slideTo(2);
-        if (swiperIndex == undefined) setSwiperIndex(2);
+        if (swiperIndex === undefined) setSwiperIndex(2);
         break;
     }
   };
@@ -155,7 +134,7 @@ const Index = () => {
     <MainTemplate>
       <MenuContainer swiperIndex={swiperIndex} swiper={swiper} />
       <SEO title="Hammer" />
-      <StyledTitle id="title">Hammer</StyledTitle>
+      <Title id="title">Hammer</Title>
       <div className="swiper-container" style={{ height: "100vh" }}>
         <div className="swiper-wrapper">
           <section data-hash="home" className="swiper-slide">

@@ -26,28 +26,28 @@ const Layer = styled.div`
 const Background2 = () => {
   const background = useStaticQuery(graphql`
     query {
-      image_1920_width: file(relativePath: { eq: "background2.jpg" }) {
+      image_1920_width: file(relativePath: { eq: "image2.jpg" }) {
         childImageSharp {
           fixed(width: 1920, quality: 90) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      image_1500_width: file(relativePath: { eq: "background2.jpg" }) {
+      image_1500_width: file(relativePath: { eq: "image2.jpg" }) {
         childImageSharp {
           fixed(width: 1500, quality: 90) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      image_1080_width: file(relativePath: { eq: "background2.jpg" }) {
+      image_1080_width: file(relativePath: { eq: "image2.jpg" }) {
         childImageSharp {
           fixed(width: 1080, quality: 90) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      image_768_width: file(relativePath: { eq: "background2.jpg" }) {
+      image_768_width: file(relativePath: { eq: "image2.jpg" }) {
         childImageSharp {
           fixed(width: 768, quality: 90) {
             ...GatsbyImageSharpFixed
