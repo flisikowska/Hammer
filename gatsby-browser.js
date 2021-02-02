@@ -3,12 +3,12 @@ export const onInitialClientRender = () => {
     Array.from(document.getElementsByTagName("img")).every((e) => e.complete);
 
   function onLoad(fn, fallback, retries = 100, interval = 30) {
-    console.log(document.fonts);
     if (
       document.readyState === "complete" &&
       allImgsAreLoaded() &&
       document.fonts.ready &&
-      document.fonts.check("bold 24px Abel")
+      document.fonts.check("bold 24px Abel") &&
+      document.fonts.check("bold 24px Quicksand")
     ) {
       console.log("Loaded!");
       fn();

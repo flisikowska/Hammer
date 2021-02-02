@@ -19,7 +19,7 @@ const StyledWrapper = styled.ul`
     background: transparent;
     opacity: 0;
     transform: translateX(100%);
-    transition: 0.5s;
+    /* transition: 0.5s; */
 
     &.active {
       transform: translateX(0);

@@ -13,7 +13,7 @@ const HeaderContainer = styled.div`
   z-index: 101;
 
   @media (max-width: 1000px) {
-    height: 60px;
+    height: 0px;
 
     &.active {
       backdrop-filter: blur(20px);

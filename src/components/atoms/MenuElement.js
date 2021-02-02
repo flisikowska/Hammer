@@ -46,14 +46,15 @@ const StyledLink = styled.a`
   font-size: 30px;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
-  /* letter-spacing: 2px; */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   color: #fff;
   text-decoration: none;
   transition: 0.5s;
   span {
     width: 100%;
     height: 100%;
-    transition: 0.5s;
+    transition: 0s;
   }
   @media (max-width: 1000px) {
     font-size: 1.5em;
@@ -61,6 +62,7 @@ const StyledLink = styled.a`
     padding: 0px;
     font-weight: 400;
     margin: 15px 0;
+    transition: 0.5s;
   }
   @media (max-width: 260px) {
     font-size: 1em;

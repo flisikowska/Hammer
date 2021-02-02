@@ -56,37 +56,23 @@ const Index = () => {
   };
 
   const TitleAnimation = (e) => {
-    const mobileView = window.matchMedia("(max-width:1000px)").matches;
     const title = document.getElementById("title");
-    if (e.realIndex !== 0 && !mobileView) {
-      title.style.position = "fixed";
-      title.style.top = "0";
-      title.style.left = "15px";
-      title.style.transform = "translate(0%, 0%)";
-      title.style.fontSize = "6vw";
-      title.style["-webkit-text-stroke-width"] = "2px";
-    } else if (e.realIndex === 0 && !mobileView) {
-      title.style.position = "absolute";
-      title.style.top = "45%";
-      title.style.left = "50%";
-      title.style.transform = "translate(-50%, -55%)";
-      title.style.fontSize = "16vw";
-      title.style["-webkit-text-stroke-width"] = "2px";
-    } else if (e.realIndex === 0 && mobileView) {
-      title.style.top = "45%";
-      title.style.left = "50%";
-      title.style.transform = "translate(-50%, -55%)";
-      title.style.fontSize = "20vw";
-      title.style["-webkit-text-stroke-width"] = "1px";
-    } else if (e.realIndex !== 0 && mobileView) {
-      title.style.top = "10px";
-      title.style.left = "10px";
-      title.style.transform = "translate(0%, 0%)";
-      title.style.fontSize = "11vw";
-      title.style["-webkit-text-stroke-width"] = "1px";
+    if (e.realIndex !== 0) {
+      title.classList.add("notFirstSection");
+    } else if (e.realIndex === 0) {
+      title.classList.remove("notFirstSection");
     }
   };
+
+  const ChangeWebsiteHeight = () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  };
   useEffect(() => {
+    ChangeWebsiteHeight();
+    window.addEventListener("resize", () => {
+      ChangeWebsiteHeight();
+    });
     if (window.location.hash === "" || window.location.hash === undefined) {
       window.location.hash = "#home";
     }
@@ -123,6 +109,8 @@ const Index = () => {
 
   useEffect(() => {
     if (!swiper) return;
+    document.getElementById("title").style.transition = "0.8s";
+    document.getElementById("menu").style.transition = "0.5s";
     SlideToSection();
 
     window.onhashchange = () => {
@@ -135,7 +123,10 @@ const Index = () => {
       <MenuContainer swiperIndex={swiperIndex} swiper={swiper} />
       <SEO title="Hammer" />
       <Title id="title">Hammer</Title>
-      <div className="swiper-container" style={{ height: "100vh" }}>
+      <div
+        className="swiper-container"
+        style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+      >
         <div className="swiper-wrapper">
           <section data-hash="home" className="swiper-slide">
             <Background />

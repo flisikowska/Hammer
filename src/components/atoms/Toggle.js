@@ -7,6 +7,8 @@ const IconWrapper = styled.div`
   position: relative;
   margin-right: 10px;
   cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 `;
 const StyledToggle = styled(Menu)`
   display: none;
