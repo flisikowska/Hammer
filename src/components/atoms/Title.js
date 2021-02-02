@@ -6,6 +6,7 @@ const Title = styled.h1`
   letter-spacing: 10px;
   font-size: 16vw;
   color: #ffd000;
+  word-wrap: break-word;
   -webkit-text-stroke-width: 2px;
   -webkit-text-fill-color: transparent;
   pointer-events: none;
@@ -13,7 +14,6 @@ const Title = styled.h1`
   top: 45%;
   left: 50%;
   transform: translate(-50%, -55%);
-  /* transition: 0.8s; */
   margin: 0;
   z-index: 100;
   &.notFirstSection {
@@ -29,6 +29,9 @@ const Title = styled.h1`
     &.notFirstSection {
       font-size: 10vw;
     }
+  }
+  @media (max-width: 500px) {
+    font-size: 18vw;
   }
 `;
 

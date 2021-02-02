@@ -12,7 +12,7 @@ const StyledWrapper = styled.ul`
     margin-left: 0;
     top: 60px;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc((calc(var(--vh, 1vh) * 100)) - 60px);
     padding: 60px 0px;
     text-align: center;
     overflow: auto;
@@ -24,7 +24,7 @@ const StyledWrapper = styled.ul`
     &.active {
       transform: translateX(0);
       width: 100%;
-      height: calc(100vh - 60px);
+      height: calc((calc(var(--vh, 1vh) * 100)) - 60px);
       opacity: 1;
       top: 60px;
     }

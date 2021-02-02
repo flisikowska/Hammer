@@ -16,6 +16,12 @@ const StyledParagraph = styled.p`
   transform: translate(-50%, -40%);
   @media (max-width: 768px) {
     font-size: 6vw;
+    top: 55%;
+    transform: translate(-50%, -45%);
+  }
+  @media (max-width: 350px) {
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 

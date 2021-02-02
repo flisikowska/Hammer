@@ -8,7 +8,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   /* background-size: cover; */
   object-fit: cover;
   z-index: -100;
@@ -21,7 +21,7 @@ const Layer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
 const Background2 = () => {
   const background = useStaticQuery(graphql`

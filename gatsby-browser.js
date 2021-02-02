@@ -6,9 +6,7 @@ export const onInitialClientRender = () => {
     if (
       document.readyState === "complete" &&
       allImgsAreLoaded() &&
-      document.fonts.ready &&
-      document.fonts.check("bold 24px Abel") &&
-      document.fonts.check("bold 24px Quicksand")
+      document.fonts.ready
     ) {
       console.log("Loaded!");
       fn();
