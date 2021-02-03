@@ -28,9 +28,10 @@ const Title = styled.h1`
     -webkit-text-stroke-width: 1px;
     &.notFirstSection {
       font-size: 10vw;
+      -webkit-text-stroke-width: 0.5px;
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 300px) {
     font-size: 18vw;
   }
 `;
