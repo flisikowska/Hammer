@@ -50,19 +50,21 @@ const StyledLink = styled.a`
   -webkit-tap-highlight-color: transparent;
   color: #fff;
   text-decoration: none;
-  transition: 0.5s;
   span {
+    transition: 0.5s;
     width: 100%;
     height: 100%;
-    transition: 0s;
   }
   @media (max-width: 1000px) {
+    span {
+      transition: 0s;
+    }
     font-size: 1.5em;
     height: 50px;
     padding: 0px;
     font-weight: 400;
     margin: 15px 0;
-    transition: 0.5s;
+    /* transition: 0.5s; */
   }
   @media (max-width: 260px) {
     font-size: 1em;
