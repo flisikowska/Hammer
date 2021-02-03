@@ -5,8 +5,10 @@ const StyledParagraph = styled.p`
   color: white;
   text-align: center;
   text-transform: uppercase;
-  font-size: 4vw;
-  letter-spacing: 3px;
+  font-size: 3.5vw;
+  /* letter-spacing: 4px; */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   margin: 0;
   cursor: default;
   width: 100%;
@@ -26,5 +28,7 @@ const StyledParagraph = styled.p`
   }
 `;
 
-const Header = () => <StyledParagraph>Firma wykończeniowa</StyledParagraph>;
+const Header = () => (
+  <StyledParagraph>Firma budowlano-remontowa</StyledParagraph>
+);
 export default Header;

@@ -57,9 +57,9 @@ const Index = () => {
 
   const TitleAnimation = (e) => {
     const title = document.getElementById("title");
-    if (e.realIndex !== 0) {
+    if (e !== 0) {
       title.classList.add("notFirstSection");
-    } else if (e.realIndex === 0) {
+    } else if (e === 0) {
       title.classList.remove("notFirstSection");
     }
   };
@@ -68,6 +68,7 @@ const Index = () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
+
   useEffect(() => {
     ChangeWebsiteHeight();
     window.addEventListener("resize", () => {
@@ -100,7 +101,7 @@ const Index = () => {
         on: {
           slideChange: function (e) {
             setSwiperIndex(e.realIndex);
-            TitleAnimation(e);
+            TitleAnimation(e.realIndex);
           },
         },
       })
@@ -109,7 +110,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!swiper) return;
-    document.getElementById("title").style.transition = "0.8s";
+    document.getElementById("title").style.transition = "1s";
     document.getElementById("menu").style.transition = "0.5s";
     SlideToSection();
 

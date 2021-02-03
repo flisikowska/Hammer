@@ -7,6 +7,8 @@ const Title = styled.h1`
   font-size: 16vw;
   color: #ffd000;
   word-wrap: break-word;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   -webkit-text-stroke-width: 2px;
   -webkit-text-fill-color: transparent;
   pointer-events: none;
