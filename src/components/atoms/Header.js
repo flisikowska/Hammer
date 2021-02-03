@@ -14,7 +14,7 @@ const StyledParagraph = styled.p`
   top: 60%;
   left: 50%;
   transform: translate(-50%, -40%);
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     font-size: 6vw;
     top: 55%;
     transform: translate(-50%, -45%);
@@ -22,12 +22,9 @@ const StyledParagraph = styled.p`
   @media (max-width: 350px) {
     top: 50%;
     transform: translate(-50%, -50%);
+    font-size: 4.5vw;
   }
 `;
 
-const Header = () => (
-  <>
-    <StyledParagraph>Firma wykończeniowa</StyledParagraph>
-  </>
-);
+const Header = () => <StyledParagraph>Firma wykończeniowa</StyledParagraph>;
 export default Header;

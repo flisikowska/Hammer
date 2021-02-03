@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Menu from "./Menu";
 import Toggle from "../atoms/Toggle";
 
-const HeaderContainer = styled.div`
+const StyledHeaderContainer = styled.div`
   position: fixed;
   display: flex;
   justify-content: flex-end;
@@ -28,13 +28,13 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const MenuContainer = ({ swiperIndex, swiper }) => {
+const HeaderContainer = ({ swiperIndex, swiper }) => {
   const [activeMenu, setActiveMenu] = useState(false);
   const toggle = () => {
     setActiveMenu((x) => !x);
   };
   return (
-    <HeaderContainer className={activeMenu ? "active" : ""} id="header">
+    <StyledHeaderContainer className={activeMenu ? "active" : ""}>
       <Menu
         swiperIndex={swiperIndex}
         swiper={swiper}
@@ -42,8 +42,8 @@ const MenuContainer = ({ swiperIndex, swiper }) => {
         activeMenu={activeMenu}
       />
       <Toggle callback={() => toggle()} />
-    </HeaderContainer>
+    </StyledHeaderContainer>
   );
 };
 
-export default MenuContainer;
+export default HeaderContainer;

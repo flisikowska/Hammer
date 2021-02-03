@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import MenuContainer from "../components/organisms/MenuContainer";
+import HeaderContainer from "../components/organisms/HeaderContainer";
 import SEO from "../components/SEO.js";
 import Background from "../components/atoms/Background";
 import Background2 from "../components/atoms/Background2";
@@ -120,7 +120,7 @@ const Index = () => {
 
   return (
     <MainTemplate>
-      <MenuContainer swiperIndex={swiperIndex} swiper={swiper} />
+      <HeaderContainer swiperIndex={swiperIndex} swiper={swiper} />
       <SEO title="Hammer" />
       <Title id="title">Hammer</Title>
       <div
