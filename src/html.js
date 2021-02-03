@@ -15,24 +15,24 @@ export default function HTML(props) {
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
-        <div
+        {/* <div
           key={`loader`}
           id="___loader"
           style={{
             alignItems: "center",
             backgroundColor: "rgb(239, 239, 239)",
-            opacity: "1",
+            opacity: "0",
             justifyContent: "center",
             position: "absolute",
             height: "100%",
             width: "100%",
             zIndex: -200,
           }}
-        />
+        /> */}
         <div
           key={`body`}
           id="___gatsby"
-          style={{ opacity: 0 }}
+          style={{ opacity: 1 }}
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
