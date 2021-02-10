@@ -31,12 +31,12 @@ const StyledWrapper = styled.ul`
   }
 `;
 
-const Menu = ({ swiperIndex, activeMenu, swiper, callback }) => (
+const Menu = ({ swiperIndex, activeMenu, swiper1, callback }) => (
   <StyledWrapper className={activeMenu ? "active" : ""} id="menu">
     <MenuElement
       callback={() => {
         callback();
-        swiper.slideTo(0);
+        swiper1.slideTo(0);
       }}
       active={swiperIndex === 0 ? "active" : ""}
       title="Strona główna"
@@ -44,7 +44,7 @@ const Menu = ({ swiperIndex, activeMenu, swiper, callback }) => (
     <MenuElement
       callback={() => {
         callback();
-        swiper.slideTo(1);
+        swiper1.slideTo(1);
       }}
       active={swiperIndex === 1 ? "active" : ""}
       title="O nas"
@@ -52,11 +52,19 @@ const Menu = ({ swiperIndex, activeMenu, swiper, callback }) => (
     <MenuElement
       callback={() => {
         callback();
-        swiper.slideTo(2);
+        swiper1.slideTo(2);
       }}
       active={swiperIndex === 2 ? "active" : ""}
-      title="Kontakt"
+      title="Projekty"
     />
+    {/* <MenuElement
+      callback={() => {
+        callback();
+        swiper1.slideTo(3);
+      }}
+      active={swiperIndex === 3 ? "active" : ""}
+      title="Współpraca"
+    /> */}
   </StyledWrapper>
 );
 

@@ -28,7 +28,7 @@ const StyledHeaderContainer = styled.div`
   }
 `;
 
-const HeaderContainer = ({ swiperIndex, swiper }) => {
+const HeaderContainer = ({ swiperIndex, swiper1 }) => {
   const [activeMenu, setActiveMenu] = useState(false);
   const toggle = () => {
     setActiveMenu((x) => !x);
@@ -37,7 +37,7 @@ const HeaderContainer = ({ swiperIndex, swiper }) => {
     <StyledHeaderContainer className={activeMenu ? "active" : ""}>
       <Menu
         swiperIndex={swiperIndex}
-        swiper={swiper}
+        swiper1={swiper1}
         callback={() => toggle()}
         activeMenu={activeMenu}
       />

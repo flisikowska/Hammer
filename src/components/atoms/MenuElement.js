@@ -53,6 +53,9 @@ const StyledLink = styled.a`
     transition: 0.5s;
     width: 100%;
     height: 100%;
+    &:last-child {
+      color: ${({ theme }) => theme.yellow};
+    }
   }
   @media (max-width: 1000px) {
     span {
@@ -76,7 +79,7 @@ const StyledLink = styled.a`
     }
     span:nth-child(2) {
       transform: translateY(-100%);
-      -webkit-text-fill-color: #ffd000;
+      -webkit-text-fill-color: ${({ theme }) => theme.yellow};
     }
   }
 `;
@@ -85,14 +88,13 @@ const MenuElement = ({ active, title, callback }) => (
   <StyledLi className={`navigation`}>
     <StyledLink
       className={active}
-      title={title}
       onClick={(e) => {
         e.preventDefault();
         callback();
       }}
     >
       <span>{title}</span>
-      <span style={{ color: "#ffd000" }}>{title}</span>
+      <span>{title}</span>
     </StyledLink>
   </StyledLi>
 );
