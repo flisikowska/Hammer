@@ -5,10 +5,10 @@ const StyledLetter = styled.div`
   font-size: 10.5vh;
   writing-mode: vertical-rl;
   text-orientation: upright;
-  -webkit-text-fill-color: ${({ theme }) => theme.yellow};
+  -webkit-text-fill-color: ${({ theme }) => theme.primary};
   font-family: "Abel";
   text-transform: uppercase;
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.primary};
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-stroke-width: 4px;

@@ -1,37 +1,68 @@
 import React from "react";
 import styled from "styled-components";
+import ListTemplate from "../../templates/ListTemplate";
 
-const StyledList = styled.ul`
-  align-self: end;
-  margin: 0;
-`;
-
-const ListElement = styled.li`
-  cursor: default;
+const ListElement = styled.div`
+  padding: 10px;
+  width: 25%;
   position: relative;
-  font-size: 2.5vw;
-  margin: 15px 0;
-  color: white;
-  transition: 3s;
-  @media (max-width: 900px) {
-    font-size: 4vw;
-  }
   :last-child {
-    margin-bottom: 0;
+    :before {
+      display: none;
+    }
+  }
+  :before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 40px;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: ${({ theme }) => theme.secondary};
+    @media (max-width: 500px) {
+      height: 25px;
+    }
+  }
+  > div {
+    color: ${({ theme }) => theme.secondary};
+    font-size: 1.3vw;
+    transition: 0.5s;
+    @media (max-width: 1100px) {
+      font-size: 1.7vw;
+    }
+    @media (max-width: 800px) {
+      font-size: 2vw;
+    }
+    @media (max-width: 420px) {
+      font-size: 2.3vw;
+    }
+    @media (max-width: 270px) {
+      font-size: 2vw;
+    }
   }
   :hover {
-    left: 50px;
+    > div {
+      color: ${({ theme }) => theme.primary};
+      transform: translateY(-20px);
+    }
   }
 `;
 
-const List = ({ style }) => (
-  <StyledList style={style}>
-    <ListElement>Doświadczenie</ListElement>
-    <ListElement>Szeroki zakres prac</ListElement>
-    <ListElement>Nowoczesne rozwiązania</ListElement>
+const List = () => (
+  <ListTemplate>
     <ListElement>
-      Możliwość zakupu i transportu <br /> materiałów budowlanych
+      <div>Doświadczenie</div>
     </ListElement>
-  </StyledList>
+    <ListElement>
+      <div>Szeroki zakres prac</div>
+    </ListElement>
+    <ListElement>
+      <div>Nowoczesne rozwiązania</div>
+    </ListElement>
+    <ListElement>
+      <div>Możliwość zakupu i transportu materiałów budowlanych</div>
+    </ListElement>
+  </ListTemplate>
 );
 export default List;

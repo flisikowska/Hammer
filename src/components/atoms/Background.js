@@ -1,18 +1,17 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
+// import pattern from "../../images/tr.png";
 import BackgroundImage from "gatsby-background-image";
 
 const StyledBackgroundImage = styled(BackgroundImage)`
   position: absolute !important;
   top: 0;
+  transform: scaleX(-1);
   left: 0;
   width: 100%;
   height: 100vh;
-  /* background-size: cover; */
-  object-fit: cover;
-  /* z-index: -100; */
-  background-position: 50% 30%;
+  background-size: cover;
 `;
 
 const Layer = styled.div`

@@ -12,7 +12,7 @@ const IconWrapper = styled.div`
 `;
 const StyledToggle = styled(Menu)`
   display: none;
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.primary};
   @media (max-width: 1000px) {
     display: block;
   }
@@ -23,7 +23,7 @@ const StyledToggle = styled(Menu)`
 `;
 const StyledToggleX = styled(X)`
   display: none;
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.primary};
 
   @media (max-width: 300px) {
     width: 30px !important;

@@ -1,49 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import SectionTemplate from "../../templates/SectionTemplate";
 import Header from "../atoms/Header";
 import Title from "../atoms/Title";
-import ContactInfo from "../atoms/ContactInfo";
 import List from "../atoms/List";
 
-const StyledContainer = styled.section`
+const StyledContainer = styled.div`
   width: 100%;
-  height: 100%;
-  padding: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px;
-  grid-template-areas:
-    "title title"
-    "list contact";
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-      "title"
-      "contact"
-      "list";
+  height: 100vh;
+  justify-content: Center;
+  display: flex;
+  padding: 70px;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  @media (max-width: 900px) {
+    padding: 70px 30px;
+  }
+  @media (max-width: 500px) {
+    padding: 70px 10px;
   }
 `;
 const Home = () => (
-  <SectionTemplate first="first">
-    <StyledContainer>
-      <div style={{ gridArea: "title" }}>
-        <Title>Hammer</Title>
-        <Header text="Firma budowlano-remontowa" />
-        <Header
-          style={{
-            fontWeight: "500",
-            marginTop: "7px",
-          }}
-          text="Krzysztof Znaniecki"
-        />
-      </div>
-      <List style={{ gridArea: "list" }} />
-      <ContactInfo style={{ gridArea: "contact" }} />
-    </StyledContainer>
-  </SectionTemplate>
+  <StyledContainer>
+    <Title>Hammer</Title>
+    <Header text="Firma budowlano-remontowa" />
+    <Header style={{ fontWeight: "500" }} text="Krzysztof Znaniecki" />
+    <List />
+  </StyledContainer>
 );
 
 export default Home;

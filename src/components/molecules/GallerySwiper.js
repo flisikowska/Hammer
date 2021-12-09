@@ -1,46 +1,83 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import img1 from "../../images/Gallery/1.jpg";
 import img2 from "../../images/Gallery/2.jpg";
 import img3 from "../../images/Gallery/3.jpg";
-import img4 from "../../images/Gallery/4.jpg";
 
-const SwiperPagination = styled.div`
-  .swiper-pagination-bullet-active {
-    background-color: ${({ theme }) => theme.yellow} !important;
+const rightArrowAnimation = keyframes`
+  0%{
+    right:10px;
   }
-  .swiper-pagination-bullet {
-    background-color: #fff;
-    opacity: 1;
+  50%{
+    right:5px;
+  }
+  100%{
+    right:10px;
+  }
+`;
+
+const leftArrowAnimation = keyframes`
+  0%{
+    left:10px;
+  }
+  50%{
+    left:5px;
+  }
+  100%{
+    left:10px;
   }
 `;
 
 const SwiperNavigation = styled.div`
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.primary};
+  :hover {
+    &.swiper-button-next2 {
+      animation: ${rightArrowAnimation} 1s infinite;
+    }
+    &.swiper-button-prev2 {
+      animation: ${leftArrowAnimation} 1s infinite;
+    }
+  }
+`;
+
+const SwiperContainer = styled.div`
+  border-radius: 10px;
+  width: 50%;
+  height: 100%;
+  background-color: #000;
+  max-height: 80%;
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 65%;
+  }
+`;
+
+const StyledImage = styled.img`
+  object-fit: contain;
 `;
 
 const GallerySwiper = () => (
-  <div
-    className="swiper-container swiper2"
-    style={{
-      height: "auto",
-      maxHeight: "100%",
-      width: "100%",
-      position: "relative",
-      top: "50%",
-      transform: "translateY(-50%)",
-    }}
-  >
+  <SwiperContainer className="swiper-container swiper2">
     <div className="swiper-wrapper">
-      <img src={img1} alt="img1" className="swiper-slide" />
-      <img src={img2} alt="img2" className="swiper-slide " />
-      <img src={img3} alt="img3" className="swiper-slide " />
-      <img src={img4} alt="img4" className="swiper-slide " />
+      <StyledImage
+        src={img1}
+        alt="img1"
+        className="swiper-slide swiper-slide2"
+      />
+      <StyledImage
+        src={img2}
+        alt="img2"
+        className="swiper-slide swiper-slide2"
+      />
+      <StyledImage
+        src={img3}
+        alt="img3"
+        className="swiper-slide swiper-slide2"
+      />
     </div>
-    <SwiperPagination className="swiper-pagination swiper-pagination2" />
     <SwiperNavigation className="swiper-button-next swiper-button-next2" />
     <SwiperNavigation className="swiper-button-prev swiper-button-prev2" />
-  </div>
+  </SwiperContainer>
 );
 
 export default GallerySwiper;

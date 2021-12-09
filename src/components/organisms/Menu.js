@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { ExecuteWhen } from "../../helpers/functions";
 import MenuElement from "../atoms/MenuElement";
 
 const StyledWrapper = styled.ul`
@@ -31,41 +32,79 @@ const StyledWrapper = styled.ul`
   }
 `;
 
-const Menu = ({ swiperIndex, activeMenu, swiper1, callback }) => (
-  <StyledWrapper className={activeMenu ? "active" : ""} id="menu">
-    <MenuElement
-      callback={() => {
-        callback();
-        swiper1.slideTo(0);
-      }}
-      active={swiperIndex === 0 ? "active" : ""}
-      title="Strona główna"
-    />
-    <MenuElement
-      callback={() => {
-        callback();
-        swiper1.slideTo(1);
-      }}
-      active={swiperIndex === 1 ? "active" : ""}
-      title="O nas"
-    />
-    <MenuElement
-      callback={() => {
-        callback();
-        swiper1.slideTo(2);
-      }}
-      active={swiperIndex === 2 ? "active" : ""}
-      title="Projekty"
-    />
-    {/* <MenuElement
-      callback={() => {
-        callback();
-        swiper1.slideTo(3);
-      }}
-      active={swiperIndex === 3 ? "active" : ""}
-      title="Współpraca"
-    /> */}
-  </StyledWrapper>
-);
+const Menu = ({ activeMenu, callback }) => {
+  const MenuOnScroll = () => {
+    var html = document.getElementsByTagName("html")[0];
+    var scrollDistance = html.scrollTop + window.innerHeight / 2;
+    var sections = document.getElementsByTagName("section");
+    var navElements = document.getElementsByClassName("navigation");
+    Array.from(sections)
+      .filter(
+        (section) =>
+          section.offsetTop <= scrollDistance ||
+          section.offsetTop + section.offsetHeight <=
+            html.scrollTop + window.innerHeight
+      )
+      .slice(-1)
+      .forEach((section) => {
+        Array.from(navElements).forEach((e) => {
+          Array.from(e.childNodes)
+            .filter((node) => node.tagName === "A")
+            .forEach((node) => {
+              node.classList.remove("active");
+              if (node.hash === `#${section.id}`) {
+                node.classList.add("active");
+                if (window.location.hash !== node.hash)
+                  window.history.replaceState(undefined, undefined, node.hash);
+              }
+            });
+        });
+      });
+  };
+
+  let delayedOnScrollTimeout = null;
+  const onscroll = () => {
+    if (delayedOnScrollTimeout) clearTimeout(delayedOnScrollTimeout);
+    if (document.readyState !== "complete") return;
+    delayedOnScrollTimeout = setTimeout(MenuOnScroll, 250);
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", onscroll);
+    ExecuteWhen(onscroll, () => document.readyState === "complete");
+  });
+  return (
+    <StyledWrapper className={activeMenu ? "active" : ""} id="menu">
+      <MenuElement
+        callback={() => {
+          callback();
+        }}
+        scrollTo="stronaglowna"
+        title="Strona główna"
+      />
+      <MenuElement
+        callback={() => {
+          callback();
+        }}
+        scrollTo="onas"
+        title="O nas"
+      />
+      <MenuElement
+        callback={() => {
+          callback();
+        }}
+        scrollTo="galeria"
+        title="Galeria"
+      />
+      <MenuElement
+        callback={() => {
+          callback();
+        }}
+        scrollTo="kontakt"
+        title="Kontakt"
+      />
+    </StyledWrapper>
+  );
+};
 
 export default Menu;

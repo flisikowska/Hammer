@@ -23,11 +23,14 @@
     "gatsby-plugin-sharp": "^2.13.3",
     "gatsby-source-filesystem": "^2.10.0",
     "gatsby-transformer-sharp": "^2.11.0",
+    "imagesloaded": "^4.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-modal-image": "^2.5.0",
+    "react-show-more-text": "^1.4.6",
     "styled-components": "^5.2.1",
     "styled-icons": "^10.26.0",
-    "swiper": "^6.4.10"
+    "swiper": "^6.4.15"
   }
 }

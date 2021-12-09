@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Abel`, `Quicksand\:300,400,500,600`],
+        fonts: [`Abel`, `Dosis`],
         display: "block",
       },
     },

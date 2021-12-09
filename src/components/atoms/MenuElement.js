@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Link } from "gatsby";
 
 const fadeInTop = keyframes`
 {
@@ -34,7 +35,7 @@ const StyledLi = styled.li`
   }
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -43,18 +44,19 @@ const StyledLink = styled.a`
   height: 40px;
   overflow: hidden;
   font-size: 30px;
-  -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  color: #fff;
+  -webkit-text-fill-color: ${({ theme }) => theme.primary};
   text-decoration: none;
   span {
+    color: ${({ theme }) => theme.primary};
+    opacity: 0.5;
     transition: 0.5s;
     width: 100%;
     height: 100%;
     &:last-child {
-      color: ${({ theme }) => theme.yellow};
+      opacity: 1;
     }
   }
   @media (max-width: 1000px) {
@@ -79,18 +81,18 @@ const StyledLink = styled.a`
     }
     span:nth-child(2) {
       transform: translateY(-100%);
-      -webkit-text-fill-color: ${({ theme }) => theme.yellow};
     }
   }
 `;
 
-const MenuElement = ({ active, title, callback }) => (
+const MenuElement = ({ scrollTo, title, callback }) => (
   <StyledLi className={`navigation`}>
     <StyledLink
-      className={active}
+      to={`#${scrollTo}`}
       onClick={(e) => {
-        e.preventDefault();
         callback();
+        e.preventDefault();
+        document.getElementById(scrollTo).scrollIntoView();
       }}
     >
       <span>{title}</span>
